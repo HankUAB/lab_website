@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feng Yuan Lab | UAB Lung Biology</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --uab-green: #006341;
+      --uab-gold: #FFC845;
+      --text-dark: #222;
+      --text-light: #555;
+      --bg-gray: #f4f4f4;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* --- Navigation --- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: var(--white);
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--uab-green);
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--uab-green); }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0,99,65,0.8), rgba(0,99,65,0.8)), 
+                  url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1500&q=80'); /* Professional lab background */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* --- Sections General --- */
+    section { padding: 80px 10%; }
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--uab-green);
+      margin-bottom: 40px;
+      border-left: 5px solid var(--uab-gold);
+      padding-left: 15px;
+    }
+
+    /* --- Research --- */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .research-card {
+      background: var(--bg-gray);
+      padding: 30px;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .research-card:hover { transform: translateY(-5px); }
+    .research-card h3 { margin-top: 0; color: var(--uab-green); }
+
+    /* --- People --- */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+    .person { text-align: center; }
+    .person img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: 0.3s;
+      margin-bottom: 15px;
+      border: 4px solid var(--bg-gray);
+    }
+    .person:hover img { filter: grayscale(0%); border-color: var(--uab-green); }
+    .person h4 { margin: 5px 0; font-size: 18px; }
+    .person p { font-size: 14px; color: var(--text-light); margin: 0; }
+
+    /* --- Publications --- */
+    .pub-list { list-style: none; padding: 0; }
+    .pub-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+    .pub-title { font-weight: 600; font-size: 17px; display: block; color: #111; text-decoration: none; }
+    .pub-authors { font-size: 14px; color: var(--text-light); }
+    .pi-name { font-weight: 700; color: var(--text-dark); text-decoration: underline; }
+    .pub-meta { font-size: 14px; font-style: italic; color: var(--uab-green); }
+    .pub-links { margin-top: 8px; }
+    .btn-sm {
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid #ccc;
+      text-decoration: none;
+      color: #666;
+      margin-right: 5px;
+    }
+    .btn-sm:hover { background: var(--uab-green); color: white; border-color: var(--uab-green); }
+
+    /* --- Contact --- */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info h3 { color: var(--uab-green); }
+    address { font-style: normal; color: var(--text-light); }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--uab-green);
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .contact-container { grid-template-columns: 1fr; }
+      header { flex-direction: column; }
+      nav { margin-top: 15px; }
+      nav a { margin: 0 10px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">Feng Yuan Lab</a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#research">Research</a>
+    <a href="#people">People</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Feng Yuan Lab</h1>
+  <p>Investigating pulmonary ionocytes and epithelial transport in airway physiology and Cystic Fibrosis.</p>
+</section>
+
+<section id="research">
+  <h2 class="section-title">Research Focus</h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <h3>Pulmonary Ionocytes</h3>
+      <p>We study the role of pulmonary ionocytes, a rare cell type discovered in the airway epithelium, and how they coordinate CFTR-mediated fluid balance.</p>
+    </div>
+    <div class="research-card">
+      <h3>Airway Surface Liquid</h3>
+      <p>Our research investigates the mechanisms of pH regulation and chloride transport that maintain the airway surface liquid (ASL) properties essential for mucociliary clearance.</p>
+    </div>
+    <div class="research-card">
+      <h3>Cystic Fibrosis</h3>
+      <p>Using primary human bronchial epithelial cells and advanced imaging, we explore therapeutic targets to restore lung function in patients with CF.</p>
+    </div>
+  </div>
+</section>
+
+<section id="people" style="background: var(--white);">
+  <h2 class="section-title">The Team</h2>
+  <div class="people-grid">
+    <div class="person">
+      <img src="https://via.placeholder.com/300x300?text=Feng+Yuan" alt="Feng Yuan">
+      <h4>Feng Yuan, PhD</h4>
+      <p>Principal Investigator</p>
+      <p>Assistant Professor, UAB</p>
+    </div>
+    <!-- Add more people here -->
+    <div class="person">
+      <img src="https://via.placeholder.com/300x300?text=Research+Staff" alt="Lab Member">
+      <h4>Join Us?</h4>
+      <p>Postdocs & Students</p>
+      <p><a href="#contact" style="color:var(--uab-green)">Apply here</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="publications" style="background: var(--bg-gray);">
+  <h2 class="section-title">Publications</h2>
+  <div class="pub-list">
+
+    <!-- 2025 -->
+    <div class="pub-item">
+      <a href="#" class="pub-title">Ionocyte CFTR Coordinates Chloride Absorption and Secretion to Balance Airway Fluid</a>
+      <div class="pub-authors"><span class="pi-name">Yuan F</span>, Hajibabazade J, Yi Y, et al.</div>
+      <div class="pub-meta">American Journal of Respiratory and Critical Care Medicine (2025). Vol 211, Issue 1.</div>
+      <div class="pub-links">
+        <a href="#" class="btn-sm">Publisher Link</a>
+        <a href="#" class="btn-sm">PDF</a>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="pub-item">
+      <a href="https://doi.org/10.1164/rccm.202311-2135OC" class="pub-title">Pulmonary Ionocytes Regulate Airway Surface Liquid pH in Primary Human Bronchial Epithelial Cells</a>
+      <div class="pub-authors">Luan X, Henao Romero N, ... <span class="pi-name">Yuan F</span>, et al.</div>
+      <div class="pub-meta">American Journal of Respiratory and Critical Care Medicine (2024). 210(6):788-800.</div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1164/rccm.202311-2135OC" class="btn-sm">DOI: 10.1164/rccm.202311-2135OC</a>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="pub-item">
+      <a href="#" class="pub-title">Sonic Hedgehog Signaling is Essential for Pulmonary Ionocyte Specification</a>
+      <div class="pub-authors">Cai Q, <span class="pi-name">Yuan F</span>, et al.</div>
+      <div class="pub-meta">American Journal of Respiratory Cell and Molecular Biology (2023). 68(4):345-356.</div>
+      <div class="pub-links">
+        <a href="#" class="btn-sm">View Article</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Location</h3>
+      <address>
+        <strong>UAB Department of Medicine</strong><br>
+        Division of Pulmonary, Allergy, and Critical Care Medicine<br>
+        Birmingham, AL 35294<br><br>
+        <strong>Email:</strong> <a href="mailto:fyuan@uab.edu" style="color:var(--uab-green)">fyuan@uab.edu</a>
+      
